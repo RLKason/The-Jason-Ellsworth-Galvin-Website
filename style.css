@@ -50,28 +50,27 @@ header {
   padding: 1.25rem 1.5rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-}
-
-.logo {
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: var(--accent);
-  transition: color var(--transition-speed) ease;
+  justify-content: flex-end;
 }
 
 .toggle-group {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 1.25rem;
 }
 
 .toggle-label {
   color: var(--text-muted);
-  font-size: 0.85rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  transition: color var(--transition-speed) ease;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.25s ease;
+}
+
+.toggle-label:hover {
+  color: var(--accent);
+  text-decoration: underline;
 }
 
 #theme-toggle {
@@ -161,16 +160,6 @@ main {
   font-size: 0.85rem;
   color: var(--text-muted);
   padding: 1rem;
-}
-
-footer {
-  text-align: center;
-  padding: 1.5rem;
-  color: var(--text-muted);
-  font-size: 0.85rem;
-  border-top: 1px solid var(--border);
-  transition: color var(--transition-speed) ease,
-              border-color var(--transition-speed) ease;
 }
 
 /* Simple fade-in on load */
