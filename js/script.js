@@ -1,21 +1,74 @@
-const themeBtn = document.getElementById("themeBtn");
+const body = document.body;
 
-themeBtn.addEventListener("click", () => {
+const button = document.getElementById("themeButton");
 
-    document.body.classList.add("fade");
+button.onclick = () => {
 
-    setTimeout(() => {
-        document.body.classList.remove("fade");
-    }, 600);
+body.classList.toggle("light");
 
-    document.body.classList.toggle("dark");
+if(body.classList.contains("light")){
 
-    localStorage.setItem(
-        "theme",
-        document.body.classList.contains("dark") ? "dark" : "light"
-    );
+button.innerHTML="🌞 Light Mode";
+
+}else{
+
+button.innerHTML="🌙 Moon Mode";
+
+}
+
+}
+
+const stars=document.getElementById("stars");
+
+for(let i=0;i<150;i++){
+
+const star=document.createElement("div");
+
+star.className="star";
+
+star.style.left=Math.random()*100+"%";
+
+star.style.top=Math.random()*100+"%";
+
+star.style.animationDelay=Math.random()*5+"s";
+
+stars.appendChild(star);
+
+}
+
+// Fade in page
+document.body.style.opacity=0;
+
+window.onload=()=>{
+
+document.body.style.opacity=1;
+
+};
+
+// Scroll animation
+const observer=new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.animate([
+
+{opacity:0,transform:"translateY(40px)"},
+
+{opacity:1,transform:"translateY(0px)"}
+
+],{
+
+duration:800,
+fill:"forwards"
+
 });
 
-if(localStorage.getItem("theme") === "dark"){
-    document.body.classList.add("dark");
 }
+
+});
+
+});
+
+document.querySelectorAll(".card,.profile").forEach(el=>observer.observe(el));
